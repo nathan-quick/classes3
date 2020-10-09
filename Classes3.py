@@ -1,3 +1,6 @@
+import csv
+
+
 class Student:
     def __init__(self, ID, FirstName, LastName, CreditsAccomplished, GPA):
         self.__ID = ID
@@ -26,5 +29,6 @@ class Student:
 s1 = Student(1123, 'Nathan', 'Quick', 17, 4.0)
 
 with open('CPTR226-HW25-Data.csv', newline='') as csvfile:
-    for line in csvfile:
-        print(line)
+    input_file = csv.DictReader(csvfile)
+    for row in input_file:
+        print(row[].keys())
