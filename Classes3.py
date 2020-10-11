@@ -29,6 +29,52 @@ class Student:
         return stats[value]
 
 
+class Students:
+    def __init__(self, studentsFilename):
+        self.__StudentsFilename = studentsFilename
+        self.__StudentsList = []
+        self.__StudentsDictList = []
+
+    def get_students(self):
+        with open(self.__StudentsFilename, newline='') as csvfile:
+            csvreader = csv.DictReader(csvfile)
+
+            # headers = csvreader.__next__()
+            # self.print_headers(headers)
+
+            for row in csvreader:
+                # create new student
+                student = Student(row['ID'], row['FirstName'], row['LastName'],
+                                  row['CreditsAccomplished'], row['GPA'])
+                # append student to list
+                print(student.get_student('FirstName'))
+                self.__StudentsList.append(student)
+                self.__StudentsDictList.append(row)
+
+    def write_all_students(self):
+        with open('out.csv', 'w') as csvfile:
+            csvwriter = csv.DictWriter(csvfile, ['ID', 'FirstName', 'LastName',
+                                                 'CreditsAccomplished', 'GPA'])
+            csvwriter.writeheader()
+            csvwriter.writerows(self.__StudentsDictList)
+
+    def print_headers(self, headers):
+        for h in headers:
+            print(h)
+
+    def printStudent(self):
+        print(self.__StudentsFilename)
+
+
 s1 = Student(1123, 'Nathan', 'Quick', 17, 4.0)
-print(s1)
-s1.print_headers()
+
+
+
+# This runs if the file is run as a script vs included as a module
+if __name__ == '__main__':
+
+    print("------------------")
+    s1 = Students('CPTR226-HW25-Data.csv')
+    s1.printStudent()
+    s1.get_students()
+    s1.write_all_students()
