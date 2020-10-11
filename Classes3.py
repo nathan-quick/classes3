@@ -9,9 +9,12 @@ class Student:
         self.__CreditsAccomplished = CreditsAccomplished
         self.__GPA = GPA
 
-    def print_headers(self, headers):
-        for h in headers:
-            print(h)
+    def __str__(self):
+        out_str = f'{self.__ID}, {self.__FirstName}, {self.__LastName}, {self.__CreditsAccomplished}, {self.__GPA}'
+        return out_str
+
+    def print_headers(self):
+        print("ID, FirstName, LastName, CreditsAccomplished, GPA")
 
     # stores all values in a dictionary for them to be called by value
     # this way I did not need to make a new get for every value
@@ -27,8 +30,5 @@ class Student:
 
 
 s1 = Student(1123, 'Nathan', 'Quick', 17, 4.0)
-
-with open('CPTR226-HW25-Data.csv', newline='') as csvfile:
-    input_file = csv.DictReader(csvfile)
-    for row in input_file:
-        print(row[].keys())
+print(s1)
+s1.print_headers()
