@@ -66,10 +66,6 @@ class Students:
         print(self.__StudentsFilename)
 
 
-s1 = Student(1123, 'Nathan', 'Quick', 17, 4.0)
-
-
-
 # This runs if the file is run as a script vs included as a module
 if __name__ == '__main__':
 
