@@ -27,6 +27,9 @@ class Student:
             'GPA': self.__GPA
         }
         return stats[value]
+    with open('CPTR226-HW25-Data.csv', newline='') as csvfile:
+        for line in csvfile:
+            print(line)
 
 
 class Students:
@@ -70,7 +73,7 @@ class Students:
 if __name__ == '__main__':
 
     print("------------------")
-    s1 = Students('CPTR226-HW25-Data.csv')
-    s1.printStudent()
-    s1.get_students()
-    s1.write_all_students()
+    s2 = Students('CPTR226-HW25-Data.csv')
+    s2.printStudent()
+    s2.get_students()
+    s2.write_all_students()
