@@ -10,7 +10,8 @@ class Student:
         self.__GPA = GPA
 
     def __str__(self):
-        out_str = f'{self.__ID}, {self.__FirstName}, {self.__LastName}, {self.__CreditsAccomplished}, {self.__GPA}'
+        # I don't know how to get this line shorter without breaking it
+        out_str = (f"{self.__ID}, {self.__FirstName}, {self.__LastName}, {self.__CreditsAccomplished}, {self.__GPA}")
         return out_str
 
     def print_headers(self):
@@ -27,9 +28,6 @@ class Student:
             'GPA': self.__GPA
         }
         return stats[value]
-    with open('CPTR226-HW25-Data.csv', newline='') as csvfile:
-        for line in csvfile:
-            print(line)
 
 
 class Students:
@@ -73,7 +71,7 @@ class Students:
 if __name__ == '__main__':
 
     print("------------------")
-    s2 = Students('CPTR226-HW25-Data.csv')
-    s2.printStudent()
-    s2.get_students()
-    s2.write_all_students()
+    s1 = Students('CPTR226-HW25-Data.csv')
+    s1.printStudent()
+    s1.get_students()
+    s1.write_all_students()
