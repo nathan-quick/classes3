@@ -1,6 +1,27 @@
+#!/var/env python3
+#
+# Classes3.py
+#
+# This file serves as an example of how to use classes
+#
+# Author: Nathan Quick and Jared Schiavone
+# Date: 2020 October 12
+# Version: 1.0
+# Course: CPTR 226
+# Assignment: Classes Part 3
+"""This is a description of the file that shows up in the docstring
+   documentation methods.
+"""
+
+# Includes
+import argparse
+import doctest
 import csv
 
+# Global Variables
 
+
+# Functions
 class Student:
     def __init__(self, ID, FirstName, LastName, CreditsAccomplished, GPA):
         self.__ID = ID
@@ -69,6 +90,13 @@ class Students:
 
 # This runs if the file is run as a script vs included as a module
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--doctest', action='store_true',
+                        help='Pass this flag to run doctest on the script')
+    args = parser.parse_args()  # parse the arguments from the commandline
+
+    if(args.doctest):
+        doctest.testmod(verbose=True)  # run the tests in verbose mode
 
     print("------------------")
     s1 = Students('CPTR226-HW25-Data.csv')
